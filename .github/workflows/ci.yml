@@ -19,7 +19,7 @@ jobs:
           ref: 'master'
           path: 'Librarian'
       - uses: actions/cache@v2
-        if: github.event_name == 'workflow_dispatch' && github.event.inputs.use_cache != 'true'
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.use_cache == 'true'
         id: cache
         with:
           path: Librarian/reports/lint
