@@ -87,31 +87,31 @@ jobs:
           status: custom
           custom_payload: |
             {
-              "blocks": [
+              blocks: [
                 {
-                  "type": "context",
-                  "elements": [
+                  type: 'context',
+                  elements: [
                     {
-                      "type": "plain_text",
-                      "text": "lint:",
-                      "emoji": true
+                      type: 'plain_text',
+                      text: 'lint:',
+                      emoji: true
                     }
                   ]
                 },
                 {
-                  "type": "image",
-                  "external_id": "${{ fromJson(steps.data.outputs.response).file.url_private }}",
-                  "alt_text": "data"
+                  type: 'image',
+                  external_id: '${{ fromJson(steps.data.outputs.response).file.url_private }}',
+                  alt_text: 'data'
                 },
                 {
-                  "type": "image",
-                  "external_id": "${{ fromJson(steps.severity.outputs.response).file.url_private }}",
-                  "alt_text": "severity"
+                  type: 'image',
+                  external_id: '${{ fromJson(steps.severity.outputs.response).file.url_private }}',
+                  alt_text: 'severity'
                 },
                 {
-                  "type": "image",
-                  "external_id": "${{ fromJson(steps.priority.outputs.response).file.url_private }}",
-                  "alt_text": "priority"
+                  type: 'image',
+                  external_id: '${{ fromJson(steps.priority.outputs.response).file.url_private }}',
+                  alt_text: 'priority'
                 }
               ]
             }
