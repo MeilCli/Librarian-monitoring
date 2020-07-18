@@ -2,6 +2,11 @@ name: CI
 
 on:
   workflow_dispatch:
+    inputs:
+      use_cache:
+        description: 'use cache for lint report xml'
+        required: true
+        default: 'true'
 
 jobs:
   lint:
@@ -13,10 +18,17 @@ jobs:
           repository: 'MeilCli/Librarian'
           ref: 'master'
           path: 'Librarian'
+      - uses: actions/cache@2
+        id: cache
+        with:
+          path: Librarian/reports/lint
+          key: ${{ runner.os }}
       - uses: actions/setup-java@v1
+        if: steps.cache.outputs.cache-hit != 'true'
         with:
           java-version: 1.8
-      - uses: actions/cache@v1
+      - uses: actions/cache@v2
+        if: steps.cache.outputs.cache-hit != 'true'
         name: Cache Gradle
         with:
           path: ~/.gradle/caches
@@ -26,8 +38,11 @@ jobs:
             ${{ runner.os }}-gradle-${{ hashFiles('Librarian/buildSrc/build.gradle.kts') }}-
             ${{ runner.os }}-gradle-
       - name: Grant permission
+        if: steps.cache.outputs.cache-hit != 'true'
         run: chmod +x Librarian/gradlew
-      - run: cd Librarian && ./gradlew lintDebug
+      - name: Run lint
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: cd Librarian && ./gradlew lintDebug
       - uses: actions/upload-artifact@v2
         with:
           name: lint-report
