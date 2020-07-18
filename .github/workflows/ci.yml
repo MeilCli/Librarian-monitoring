@@ -61,3 +61,60 @@ jobs:
             priority.png
             report.json
             report.txt
+      - uses: MeilCli/slack-upload-file@master
+        id: data
+        with:
+          slack_token: ${{ secrets.SLACK_TOKEN }}
+          file_path: 'data.png'
+          file_name: 'data.png'
+          file_type: 'png'
+      - uses: MeilCli/slack-upload-file@master
+        id: severity
+        with:
+          slack_token: ${{ secrets.SLACK_TOKEN }}
+          file_path: 'severity.png'
+          file_name: 'severity.png'
+          file_type: 'png'
+      - uses: MeilCli/slack-upload-file@master
+        id: priority
+        with:
+          slack_token: ${{ secrets.SLACK_TOKEN }}
+          file_path: 'priority.png'
+          file_name: 'priority.png'
+          file_type: 'png'
+      - uses: 8398a7/action-slack@v3
+        with:
+          status: custom
+          custom_payload: |
+            {
+              "blocks": [
+                {
+                  "type": "context",
+                  "elements": [
+                    {
+                      "type": "plain_text",
+                      "text": "lint:",
+                      "emoji": true
+                    }
+                  ]
+                },
+                {
+                  "type": "image",
+                  "external_id": "${{ fromJson(steps.data.outputs.response).file.url_private }}",
+                  "alt_text": "data"
+                },
+                {
+                  "type": "image",
+                  "external_id": "${{ fromJson(steps.severity.outputs.response).file.url_private }}",
+                  "alt_text": "severity"
+                },
+                {
+                  "type": "image",
+                  "external_id": "${{ fromJson(steps.priority.outputs.response).file.url_private }}",
+                  "alt_text": "priority"
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}     
+          
