@@ -84,7 +84,7 @@ jobs:
           file_type: 'png'
       - run: echo "$text"
         env:
-          text: ${{ toJson(fromJson(steps.data.outputs.response)) }}
+          text: ${{ steps.data.outputs.response }}
       - uses: 8398a7/action-slack@v3
         with:
           status: custom
