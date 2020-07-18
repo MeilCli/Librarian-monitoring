@@ -19,6 +19,7 @@ jobs:
           ref: 'master'
           path: 'Librarian'
       - uses: actions/cache@v2
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.use_cache != 'true'
         id: cache
         with:
           path: Librarian/reports/lint
@@ -55,8 +56,8 @@ jobs:
         with:
           name: lint-result
           path: |
-            Librarian/data.png
-            Librarian/severity.png
-            Librarian/priority.png
-            Librarian/report.json
-            Librarian/report.txt
+            data.png
+            severity.png
+            priority.png
+            report.json
+            report.txt
