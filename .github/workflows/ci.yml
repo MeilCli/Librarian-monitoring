@@ -27,7 +27,7 @@ jobs:
             ${{ runner.os }}-gradle-
       - name: Grant permission
         run: chmod +x Librarian/gradlew
-      - run: Librarian/gradlew lintDebug
+      - run: cd Librarian && ./gradlew lintDebug
       - uses: MeilCli/android-lint-statistics@master
         with:
           lint_xml_file_path: 'Librarian/reports/lint/**/**.xml'
