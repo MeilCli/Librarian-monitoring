@@ -8,9 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
           repository: 'MeilCli/Librarian'
           ref: 'master'
+          path: 'Librarian'
       - uses: actions/setup-java@v1
         with:
           java-version: 1.8
@@ -18,23 +20,23 @@ jobs:
         name: Cache Gradle
         with:
           path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('buildSrc/build.gradle.kts') }}-${{ hashFiles('buildSrc/src/**') }}-${{ hashFiles('dependencies/build.gradle') }}
+          key: ${{ runner.os }}-gradle-${{ hashFiles('Librarian/buildSrc/build.gradle.kts') }}-${{ hashFiles('Librarian/buildSrc/src/**') }}-${{ hashFiles('Librarian/dependencies/build.gradle') }}
           restore-keys: |
-            ${{ runner.os }}-gradle-${{ hashFiles('buildSrc/build.gradle.kts') }}-${{ hashFiles('buildSrc/src/**') }}-
-            ${{ runner.os }}-gradle-${{ hashFiles('buildSrc/build.gradle.kts') }}-
+            ${{ runner.os }}-gradle-${{ hashFiles('Librarian/buildSrc/build.gradle.kts') }}-${{ hashFiles('Librarian/buildSrc/src/**') }}-
+            ${{ runner.os }}-gradle-${{ hashFiles('Librarian/buildSrc/build.gradle.kts') }}-
             ${{ runner.os }}-gradle-
       - name: Grant permission
-        run: chmod +x gradlew
-      - run: ./gradlew lintDebug
+        run: chmod +x Librarian/gradlew
+      - run: Librarian/gradlew lintDebug
       - uses: MeilCli/android-lint-statistics@master
         with:
-          lint_xml_file_path: 'reports/lint/**/**.xml'
+          lint_xml_file_path: 'Librarian/reports/lint/**/**.xml'
       - uses: actions/upload-artifact@v2
         with:
           name: lint-result
           path: |
-            data.png
-            severity.png
-            priority.png
-            report.json
-            report.txt
+            Librarian/data.png
+            Librarian/severity.png
+            Librarian/priority.png
+            Librarian/report.json
+            Librarian/report.txt
