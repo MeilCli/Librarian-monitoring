@@ -97,21 +97,6 @@ jobs:
                       emoji: true
                     }
                   ]
-                },
-                {
-                  type: 'image',
-                  external_id: '${{ fromJson(steps.data.outputs.response).file.url_private }}',
-                  alt_text: 'data'
-                },
-                {
-                  type: 'image',
-                  external_id: '${{ fromJson(steps.severity.outputs.response).file.url_private }}',
-                  alt_text: 'severity'
-                },
-                {
-                  type: 'image',
-                  external_id: '${{ fromJson(steps.priority.outputs.response).file.url_private }}',
-                  alt_text: 'priority'
                 }
               ]
             }
