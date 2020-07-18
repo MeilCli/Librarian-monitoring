@@ -28,6 +28,11 @@ jobs:
       - name: Grant permission
         run: chmod +x Librarian/gradlew
       - run: cd Librarian && ./gradlew lintDebug
+      - uses: actions/upload-artifact@v2
+        with:
+          name: lint-report
+          path: |
+            Librarian/reports/lint/**/**.xml
       - uses: MeilCli/android-lint-statistics@master
         with:
           lint_xml_file_path: 'Librarian/reports/lint/**/**.xml'
