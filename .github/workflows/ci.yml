@@ -82,6 +82,9 @@ jobs:
           file_path: 'priority.png'
           file_name: 'priority.png'
           file_type: 'png'
+      - run: echo "$text"
+        env:
+          text: ${{ toJson(fromJson(steps.data.outputs.response)) }}
       - uses: 8398a7/action-slack@v3
         with:
           status: custom
@@ -97,6 +100,21 @@ jobs:
                       emoji: true
                     }
                   ]
+                },
+                {
+                  type: 'image',
+                  external_id: '${{ fromJson(steps.data.outputs.response).file.url_private }}',
+                  alt_text: 'data'
+                },
+                {
+                  type: 'image',
+                  external_id: '${{ fromJson(steps.severity.outputs.response).file.url_private }}',
+                  alt_text: 'severity'
+                },
+                {
+                  type: 'image',
+                  external_id: '${{ fromJson(steps.priority.outputs.response).file.url_private }}',
+                  alt_text: 'priority'
                 }
               ]
             }
