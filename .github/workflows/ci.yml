@@ -65,6 +65,7 @@ jobs:
         id: data
         with:
           slack_token: ${{ secrets.SLACK_TOKEN }}
+          channels: ${{ secrets.SLACK_CHANNELS }}
           file_path: 'data.png'
           file_name: 'data.png'
           file_type: 'png'
@@ -72,6 +73,7 @@ jobs:
         id: severity
         with:
           slack_token: ${{ secrets.SLACK_TOKEN }}
+          channels: ${{ secrets.SLACK_CHANNELS }}
           file_path: 'severity.png'
           file_name: 'severity.png'
           file_type: 'png'
@@ -79,6 +81,7 @@ jobs:
         id: priority
         with:
           slack_token: ${{ secrets.SLACK_TOKEN }}
+          channels: ${{ secrets.SLACK_CHANNELS }}
           file_path: 'priority.png'
           file_name: 'priority.png'
           file_type: 'png'
