@@ -62,7 +62,13 @@ jobs:
             report.json
             report.txt
       - uses: MeilCli/slack-upload-file@master
-        id: data
+        with:
+          slack_token: ${{ secrets.SLACK_TOKEN }}
+          channels: ${{ secrets.SLACK_CHANNELS }}
+          file_path: 'report.txt'
+          file_name: 'report.txt'
+          file_type: 'text' 
+      - uses: MeilCli/slack-upload-file@master
         with:
           slack_token: ${{ secrets.SLACK_TOKEN }}
           channels: ${{ secrets.SLACK_CHANNELS }}
@@ -70,7 +76,6 @@ jobs:
           file_name: 'data.png'
           file_type: 'png'
       - uses: MeilCli/slack-upload-file@master
-        id: severity
         with:
           slack_token: ${{ secrets.SLACK_TOKEN }}
           channels: ${{ secrets.SLACK_CHANNELS }}
@@ -78,7 +83,6 @@ jobs:
           file_name: 'severity.png'
           file_type: 'png'
       - uses: MeilCli/slack-upload-file@master
-        id: priority
         with:
           slack_token: ${{ secrets.SLACK_TOKEN }}
           channels: ${{ secrets.SLACK_CHANNELS }}
