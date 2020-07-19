@@ -1,11 +1,51 @@
 {
     "data": [
         {
-            "date": "2020/7/19",
-            "all": 66,
+            "date": "2020/7/16",
+            "all": 69,
             "info": 3,
             "warning": 63,
-            "error": 0,
+            "error": 2,
+            "fatal": 1
+        },
+        {
+            "date": "2020/7/17",
+            "all": 70,
+            "info": 3,
+            "warning": 63,
+            "error": 2,
+            "fatal": 2
+        },
+        {
+            "date": "2020/7/17",
+            "all": 80,
+            "info": 3,
+            "warning": 73,
+            "error": 2,
+            "fatal": 2
+        },
+        {
+            "date": "2020/7/18",
+            "all": 76,
+            "info": 8,
+            "warning": 64,
+            "error": 2,
+            "fatal": 2
+        },
+        {
+            "date": "2020/7/18",
+            "all": 70,
+            "info": 3,
+            "warning": 65,
+            "error": 2,
+            "fatal": 0
+        },
+        {
+            "date": "2020/7/19",
+            "all": 67,
+            "info": 3,
+            "warning": 63,
+            "error": 1,
             "fatal": 0
         }
     ]
