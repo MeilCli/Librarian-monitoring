@@ -84,40 +84,4 @@ jobs:
           channels: ${{ secrets.SLACK_CHANNELS }}
           file_path: 'priority.png'
           file_name: 'priority.png'
-          file_type: 'png'
-      - uses: 8398a7/action-slack@v3
-        with:
-          status: custom
-          custom_payload: |
-            {
-              blocks: [
-                {
-                  type: 'context',
-                  elements: [
-                    {
-                      type: 'plain_text',
-                      text: 'lint:',
-                      emoji: true
-                    }
-                  ]
-                },
-                {
-                  type: 'image',
-                  image_url: '${{ fromJson(steps.data.outputs.response).file.url_private }}',
-                  alt_text: 'data'
-                },
-                {
-                  type: 'image',
-                  image_url: '${{ fromJson(steps.severity.outputs.response).file.url_private }}',
-                  alt_text: 'severity'
-                },
-                {
-                  type: 'image',
-                  image_url: '${{ fromJson(steps.priority.outputs.response).file.url_private }}',
-                  alt_text: 'priority'
-                }
-              ]
-            }
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}     
-          
+          file_type: 'png' 
