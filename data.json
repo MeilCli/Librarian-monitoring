@@ -1,80 +1,80 @@
 {
     "data": [
         {
-            "date": "2020/7/18",
+            "date": "2020/7/14",
             "all": 0,
             "warning": 0,
             "error": 0,
             "fatal": 0
         },
         {
-            "date": "2020/7/18",
+            "date": "2020/7/14",
             "all": 0,
             "warning": 0,
             "error": 0,
             "fatal": 0
         },
         {
-            "date": "2020/7/18",
+            "date": "2020/7/15",
             "all": 24,
             "warning": 24,
             "error": 0,
             "fatal": 0
         },
         {
-            "date": "2020/7/18",
-            "all": 24,
+            "date": "2020/7/15",
+            "all": 28,
             "warning": 24,
-            "error": 0,
+            "error": 4,
             "fatal": 0
         },
         {
-            "date": "2020/7/18",
-            "all": 24,
+            "date": "2020/7/15",
+            "all": 29,
             "warning": 24,
-            "error": 0,
+            "error": 4,
+            "fatal": 1
+        },
+        {
+            "date": "2020/7/16",
+            "all": 27,
+            "warning": 24,
+            "error": 3,
             "fatal": 0
         },
         {
-            "date": "2020/7/18",
-            "all": 24,
+            "date": "2020/7/16",
+            "all": 26,
             "warning": 24,
             "error": 0,
-            "fatal": 0
+            "fatal": 2
+        },
+        {
+            "date": "2020/7/16",
+            "all": 28,
+            "warning": 24,
+            "error": 2,
+            "fatal": 2
+        },
+        {
+            "date": "2020/7/17",
+            "all": 29,
+            "warning": 24,
+            "error": 3,
+            "fatal": 2
         },
         {
             "date": "2020/7/18",
-            "all": 24,
+            "all": 31,
             "warning": 24,
-            "error": 0,
-            "fatal": 0
+            "error": 5,
+            "fatal": 2
         },
         {
             "date": "2020/7/18",
-            "all": 24,
+            "all": 26,
             "warning": 24,
-            "error": 0,
-            "fatal": 0
-        },
-        {
-            "date": "2020/7/18",
-            "all": 24,
-            "warning": 24,
-            "error": 0,
-            "fatal": 0
-        },
-        {
-            "date": "2020/7/18",
-            "all": 24,
-            "warning": 24,
-            "error": 0,
-            "fatal": 0
-        },
-        {
-            "date": "2020/7/18",
-            "all": 24,
-            "warning": 24,
-            "error": 0,
+            "error": 2,
             "fatal": 0
         },
         {
