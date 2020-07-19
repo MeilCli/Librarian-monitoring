@@ -3,3 +3,4 @@ This repository is monitoring [Librarian](https://github.com/MeilCli/Librarian) 
 
 debugging actions:
 - [android-lint-statistics](https://github.com/MeilCli/android-lint-statistics)
+- [detekt-statistics](https://github.com/MeilCli/detekt-statistics)
