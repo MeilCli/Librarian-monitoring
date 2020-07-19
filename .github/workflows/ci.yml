@@ -121,7 +121,7 @@ jobs:
       - name: Grant permission
         if: steps.cache.outputs.cache-hit != 'true'
         run: chmod +x Librarian/gradlew
-      - name: Run lint
+      - name: Run detekt
         if: steps.cache.outputs.cache-hit != 'true'
         run: cd Librarian && ./gradlew detekt
       - uses: actions/upload-artifact@v2
